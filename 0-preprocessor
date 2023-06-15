@@ -1,0 +1,2 @@
+#!/bin/bash
+cpp -P "$CFILE" > c
