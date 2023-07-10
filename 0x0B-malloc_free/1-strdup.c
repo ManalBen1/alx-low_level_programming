@@ -3,13 +3,13 @@
 
 char *_strdup(const char *str)
 {
+size_t length;
+char *duplicate;
+
 if (str == NULL)
 return NULL;
 
-size_t length;
 length = strlen(str);
-
-char *duplicate;
 duplicate = malloc((length + 1) * sizeof(char));
 
 if (duplicate == NULL)
