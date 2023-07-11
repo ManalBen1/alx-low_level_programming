@@ -1,24 +1,40 @@
+#include <stdio.h>
+		
 #include <stdlib.h>
-
+		
+#include "main.h"
+		
 /**
-* free_grid - Frees the memory allocated for a 2D grid.
-* @grid: Pointer to the 2D grid.
-* @rows: Number of rows in the grid.
+		
+* free_grid - frees 2d array
+		
+* @grid: 2d grid
+		
+* @height: height dimension of grid
+		
+* Description: frees memory of grid
+		
+* Return: nothing
+		
 *
-* This function frees the memory allocated for a dynamically allocated 2D grid,
-* including both the row pointers and the data elements.
+		
 */
-
-void free_grid(int **grid, int rows)
+		
+void free_grid(int **grid, int height)
+		
 {
-if (grid == NULL)
-return;
+		
+int i;
+		
 
-for (int i = 0; i < rows; i++)
+		
+for (i = 0; i < height; i++)
+		
 {
-if (grid[i] != NULL)
+		
 free(grid[i]);
+		
 }
-
 free(grid);
+		
 }
