@@ -1,77 +1,80 @@
 #include <stdlib.h>
-#include "main.h"
 
-/**
-* count_word - helper function to count the number of words in a string
-* @s: string to evaluate
-*
-* Return: number of words
-*/
-int count_word(char *s)
-{
-int flag, c, w;
+int get_word_count(char *str);
+int get_word_length(char *str);
+void free_2d_array(char **arr, int rows);
 
-flag = 0;
-w = 0;
-
-for (c = 0; s[c] != '\0'; c++)
-{
-if (s[c] == ' ')
-flag = 0;
-else if (flag == 0)
-{
-flag = 1;
-w++;
-}
-}
-
-return (w);
-}
-/**
-* **strtow - splits a string into words
-* @str: string to split
-*
-* Return: pointer to an array of strings (Success)
-* or NULL (Error)
-*/
 char **strtow(char *str)
 {
-char **matrix, *tmp;
-int i, k = 0, len = 0, words, c = 0, start, end;
+int i, j, k, len, words;
+char **matrix;
 
-while (*(str + len))
-len++;
-words = count_word(str);
+if (str == NULL || *str == '\0')
+return (NULL);
+
+words = get_word_count(str);
 if (words == 0)
 return (NULL);
 
-matrix = (char **) malloc(sizeof(char *) * (words + 1));
+matrix = malloc((words + 1) * sizeof(char *));
 if (matrix == NULL)
 return (NULL);
 
-for (i = 0; i <= len; i++)
+for (i = 0; i < words; i++)
 {
-if (str[i] == ' ' || str[i] == '\0')
+while (*str == ' ')
+str++;
+len = get_word_length(str);
+matrix[i] = malloc((len + 1) * sizeof(char));
+if (matrix[i] == NULL)
 {
-if (c)
-{
-end = i;
-tmp = (char *) malloc(sizeof(char) * (c + 1));
-if (tmp == NULL)
+free_2d_array(matrix, i);
 return (NULL);
-while (start < end)
-*tmp++ = str[start++];
-*tmp = '\0';
-matrix[k] = tmp - c;
-k++;
-c = 0;
+}
+for (j = 0, k = 0; j < len; j++, k++, str++)
+{
+matrix[i][k] = *str;
+if (*(str + 1) == ' ' || *(str + 1) == '\0')
+{
+matrix[i][k + 1] = '\0';
+str++;
+break;
 }
 }
-else if (c++ == 0)
-start = i;
 }
-
-matrix[k] = NULL;
-
+matrix[i] = NULL;
 return (matrix);
+}
+
+int get_word_count(char *str)
+{
+int count = 0, i;
+
+for (i = 0; str[i] != '\0'; i++)
+{
+if (str[i] != ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
+count++;
+}
+return (count);
+}
+
+int get_word_length(char *str)
+{
+int length = 0;
+
+while (*str != ' ' && *str != '\0')
+{
+length++;
+str++;
+}
+return (length);
+}
+
+void free_2d_array(char **arr, int rows)
+{
+int i;
+
+for (i = 0; i < rows; i++)
+free(arr[i]);
+free(arr);
 }
