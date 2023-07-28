@@ -4,9 +4,10 @@
 #include "lists.h"
 
 /**
-* Prototype: void free_list(list_t *head).
-* @head: it's a pointer to the head of the freed list.
 * free_list - Frees a list_t list.
+* @head: Pointer to the head of the list that should be freed.
+* Prototype: void free_list(list_t *head).
+* Description: This function frees all the nodes of a linked list and  strings.
 */
 
 void free_list(list_t *head)
