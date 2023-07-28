@@ -9,11 +9,11 @@
 size_t list_len(const list_t *head)
 {
 size_t count = 0;
-const list_t *current = head;
-while (current != NULL)
+const list_t *curr = head;
+while (curr != NULL)
 {
 count = count + 1;
-current = current->next;
+curr = curr->next;
 }
 
 return (count);

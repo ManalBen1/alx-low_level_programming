@@ -1,5 +1,3 @@
-#include <stdlib.h>
-#include <string.h>
 #include <stdio.h>
 #include "lists.h"
 
@@ -17,7 +15,7 @@ while (head != NULL)
 if (head->str == NULL)
 printf("[0] (nil)\n");
 else
-printf("[%d] %s\n", head->len, head->str);
+printf("[%u] %s\n", head->len, head->str);
 
 count++;
 head = head->next;
