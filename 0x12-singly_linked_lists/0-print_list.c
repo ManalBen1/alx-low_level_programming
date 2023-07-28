@@ -24,5 +24,5 @@ count++;
 head = head->next;
 }
 
-return count;
+return (count);
 }
