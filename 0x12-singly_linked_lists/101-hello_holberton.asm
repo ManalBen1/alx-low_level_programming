@@ -1,5 +1,1 @@
-section .text
-    global main
-
-extern printf
-Hello, Holberton
+printf("Hello, Holberton,\n");
