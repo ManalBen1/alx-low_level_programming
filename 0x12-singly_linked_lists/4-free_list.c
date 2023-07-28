@@ -5,7 +5,8 @@
 
 /**
 * Prototype: void free_list(list_t *head).
-*@head: it's a pointer to the head of the freed list.
+* @head: it's a pointer to the head of the freed list.
+* free_list - Frees a list_t list.
 */
 
 void free_list(list_t *head)
