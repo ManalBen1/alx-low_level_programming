@@ -12,7 +12,7 @@ int main(void)
 {
     listint_t *h;
 
-    head = NULL;
+    h = NULL;
     add_nodeint(&h, 0);
     add_nodeint(&h, 1);
     add_nodeint(&h, 2);

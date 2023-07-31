@@ -17,7 +17,7 @@ if (node1 == NULL)
 return (NULL);
 }
 node1->n = n;
-node1->next = h;
-h = node1;
+node1->next = *h;
+*h = node1;
 return (node1);
 }
