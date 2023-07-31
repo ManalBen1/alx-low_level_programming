@@ -28,4 +28,5 @@ size_t listint_len(const listint_t *h);
 * Return: the address of the new element, or NULL if it failed.
 */
 listint_t *add_nodeint(listint_t **h, const int n);
+listint_t *add_nodeint_end(listint_t **h, const int n);
 #endif /* LISTS_H */
