@@ -13,10 +13,14 @@ if (h == NULL)
 {
 return (0);
 }
+if (*h == NULL)
+{
+return (0);
+}
 else
 {
-
 int data;
+
 listint_t *temp;
 
 data = (*h)->n;
