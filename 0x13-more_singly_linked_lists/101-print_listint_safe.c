@@ -7,23 +7,25 @@
 * @h: Pointer to the head of the list.
 * Return: The number of nodes in the list.
 */
-
 size_t print_listint_safe(const listint_t *h)
 {
-size_t i  = 0;
-const listint_t *temp = h;
+size_t i = 0;
+const listint_t *slow = h;
+const listint_t *fast = h;
 
-while (temp != NULL && i < 30)
+while (fast != NULL && fast->next != NULL)
 {
-printf("%d\n", temp->n);
+slow = slow->next;
+fast = fast->next->next;
 
-temp = temp->next;
-i = i + 1;
+if (slow == fast)
+{
+printf("Loop detected! Truncated output.\n");
+return (i);
 }
 
-if (i >= 30)
-{
-printf("output.\n");
+printf("%d\n", slow->n);
+i = i + 1;
 }
 
 return (i);
