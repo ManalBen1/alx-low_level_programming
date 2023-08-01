@@ -1,4 +1,3 @@
-#include <stddef.h>
 #include "lists.h"
 #include <stdlib.h>
 
@@ -7,21 +6,23 @@
 * @h: Double pointer to the head of the list.
 * Return: The size of the list that was freed.
 */
-
 size_t free_listint_safe(listint_t **h)
 {
 size_t i = 0;
-listint_t *curr_node, *next_node;
+listint_t *curr = *h;
 
-curr_node = *h;
-while (curr_node != NULL)
+while (curr != NULL)
 {
-next_node = curr_node->next;
-free(curr_node);
+listint_t *next_node = curr->next;
+free(curr);
+curr = next_node;
 i = i + 1;
-curr_node = next_node;
+if (i > 1000)
+{
+*h = NULL;
+break;
 }
-
+}
 *h = NULL;
 return (i);
 }
