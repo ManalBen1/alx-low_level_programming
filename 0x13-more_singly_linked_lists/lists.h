@@ -104,4 +104,35 @@ int delete_nodeint_at_index(listint_t **h, unsigned int index);
 */
 
 listint_t *reverse_listint(listint_t **h);
+
+
+/**
+* print_listint_safe - prints a listint_t linked list.
+* @h: Pointer to the head of the list
+* Return: the number of nodes in the list
+*/
+
+size_t print_listint_safe(const listint_t *h);
+
+
+
+/**
+*free_listint_safe  -  frees a listint_t list.
+* @h: Pointer to the head of the list
+* Return: the size of the list that was free’d
+*/
+
+size_t free_listint_safe(listint_t **h);
+
+
+/**
+* find_listint_loop -  finds the loop in a linked list.
+* @h: Pointer to the head of the list
+* Return: The address of the node where the loop starts, 
+* or NULL if there is no loop
+*/
+
+listint_t *find_listint_loop(listint_t *h);
+
+
 #endif /* LISTS_H */
