@@ -1,3 +1,5 @@
+#ifndef MAIN_H
+#define MAIN_H
 #include <stdio.h>
 
 /**
@@ -9,3 +11,10 @@
 */
 
 unsigned int binary_to_uint(const char *b);
+
+/**
+* print_binary - prints the binary representation of a number.
+* @n : number for which you want to print the binary representation
+*/
+
+void print_binary(unsigned long int n);
