@@ -19,13 +19,13 @@ int create_file(const char *filename, char *text_content)
 FILE *file;
 size_t len = 0;
 size_t written = 0;
-file = fopen(filename, "w");
+
 
 if (filename == NULL)
 
 return (-1);
 
-
+file = fopen(filename, "w");
 if (file == NULL)
 
 return (-1);
