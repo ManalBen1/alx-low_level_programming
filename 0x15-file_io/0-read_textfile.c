@@ -36,7 +36,7 @@ return (0);
 }
 
 bytesR = fread(buff, 1, letters, file);
-if (bytesR == 0)
+if (bytesR < 0)
 {
 free(buff);
 fclose(file);
