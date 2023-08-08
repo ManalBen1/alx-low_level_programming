@@ -46,7 +46,7 @@ fclose(file);
 return (0);
 }
 
-bytesR = fread(buff, 1, letters, file);
+
 fclose(file);
 buff[bytesR] = '\0';
 printf("%s", buff);
