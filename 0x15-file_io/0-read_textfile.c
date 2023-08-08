@@ -17,9 +17,6 @@ ssize_t bytesR;
 char *buff;
 FILE *file;
 
-file = fopen(filename, "r");
-buff = malloc(letters + 1);
-bytesR = fread(buff, 1, letters, file);
 if (bytesR < 0)
 {
 free(buff);
