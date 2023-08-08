@@ -39,7 +39,7 @@ written = fwrite(text_content, sizeof(char), len, file);
 
 if (written != len)
 fclose(file);
-return (-1);
+return (1);
 }
 fclose(file);
 return (1);
