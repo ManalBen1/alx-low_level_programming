@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "main.h"
 #include <sys/stat.h>
+#include <fcntl.h>
 /**
 * create_file - Creats a file and writes content into it.
 * @filename:is the name of the file to create.
@@ -16,7 +17,7 @@
 */
 int create_file(const char *filename, char *text_content)
 {
-FILE *file;
+int file;
 size_t len = 0;
 size_t written = 0;
 
@@ -25,26 +26,24 @@ if (filename == NULL)
 
 return (-1);
 
-file = fopen(filename, "w");
-if (file == NULL)
+file = fopen(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+if (file == -1)
 
 return (-1);
 
 
 if (text_content != NULL)
-{
-if (chmod(filename, S_IRUSR | S_IWUSR) != 0)
-fclose(file);
-return (-1);
-}
+
 {
 while (text_content[len] != '\0')
 len = len + 1;
-written = fwrite(text_content, sizeof(char), len, file);
+written = fwrite(file, text_content, len);
 
 if (written != len)
+{
 fclose(file);
 return (1);
+}
 }
 fclose(file);
 return (1);
