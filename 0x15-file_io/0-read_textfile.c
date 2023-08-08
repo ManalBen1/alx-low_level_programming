@@ -16,7 +16,9 @@ ssize_t read_textfile(const char *filename, size_t letters)
 ssize_t bytesR;
 char *buff;
 FILE *file;
-
+file = fopen(filename, "r");
+buff = malloc(letters + 1);
+bytesR = fread(buff, 1, letters, file)
 if (bytesR < 0)
 {
 free(buff);
@@ -24,7 +26,7 @@ free(buff);
 return (0);
 }
 
-file = fopen(filename, "r");
+
 if (!file)
 {
 return (0);
@@ -34,7 +36,7 @@ if (filename == NULL)
 return (0);
 }
 
-buff = malloc(letters + 1);
+
 
 if (buff == NULL)
 {
