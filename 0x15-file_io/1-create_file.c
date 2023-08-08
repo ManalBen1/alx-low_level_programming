@@ -42,5 +42,9 @@ fclose(file);
 return (1);
 }
 fclose(file);
+if (chmod(filename, S_IRUSR | S_IWUSR) != 0)
+return (-1);
+
+
 return (1);
 }
