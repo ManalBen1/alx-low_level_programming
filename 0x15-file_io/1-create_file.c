@@ -26,7 +26,7 @@ if (filename == NULL)
 
 return (-1);
 
-file = fopen(filename,"w");
+file = fopen(filename, "w");
 if (file == NULL)
 
 return (-1);
