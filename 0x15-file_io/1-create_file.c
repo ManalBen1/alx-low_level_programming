@@ -42,5 +42,5 @@ fclose(file);
 return (-1);
 }
 fclose(file);
-return (-1);
+return (1);
 }
