@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "main.h"
-
+#include <sys/stat.h>
 /**
 * create_file - Creats a file and writes content into it.
 * @filename:is the name of the file to create.
