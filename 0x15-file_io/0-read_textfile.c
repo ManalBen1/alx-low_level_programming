@@ -47,7 +47,7 @@ if (bytesR < 0)
 {
 free(buff);
 fclose(file);
-return (0);
+return (-1);
 }
 
 fclose(file);
