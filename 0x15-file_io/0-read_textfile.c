@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "main.h"
-
+#include <unistd.h> 
 /**
 * read_textfile - reads a text file and prints it to the POSIX standard output.
 * @letters: the number of letters it should read and print.
