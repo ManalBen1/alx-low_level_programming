@@ -23,29 +23,29 @@ return (0);
 }
 
 file = fopen(filename, "r");
-buff = malloc(letters + 1);
-bytesR = fread(buff, 1, letters, file);
-if (bytesR < 0)
-{
-free(buff);
-
-return (0);
-}
-
-
 if (!file)
 {
 return (0);
 }
+
+buff = malloc(letters + 1);
+bytesR = fread(buff, 1, letters, file)
+
 if (buff == NULL)
 {
 fclose(file);
 
 return (0);
 }
+if (bytesR < 0)
+{
+free(buff);
+return (0);
+}
 fclose(file);
 buff[bytesR] = '\0';
 printf("%s", buff);
 free(buff);
+
 return (bytesR);
 }
