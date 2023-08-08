@@ -33,6 +33,11 @@ return (-1);
 
 if (text_content != NULL)
 {
+if (chmod(filename, S_IRUSR | S_IWUSR) != 0)
+fclose(file);
+return (-1);
+}
+{
 while (text_content[len] != '\0')
 len = len + 1;
 written = fwrite(text_content, sizeof(char), len, file);
@@ -42,9 +47,5 @@ fclose(file);
 return (1);
 }
 fclose(file);
-if (chmod(filename, S_IRUSR | S_IWUSR) != 0)
-return (-1);
-
-
 return (1);
 }
