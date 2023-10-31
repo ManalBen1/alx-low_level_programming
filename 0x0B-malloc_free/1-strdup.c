@@ -2,13 +2,9 @@
 #include <string.h>
 
 /**
-
 * _strdup - duplicate to new memory space location
-
 * @str: char
-
 * Return: 0
-
 */
 
 
