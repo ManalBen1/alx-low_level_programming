@@ -16,7 +16,7 @@ const listint_t *fast_one = h;
 if (h == NULL)
 return (0);
 
-while(fast_one && fast_one->next)
+while (fast_one && fast_one->next)
 {
 printf("[%p] %d\n", (void *)slow_one, slow_one->n);
 i = i + 1;
