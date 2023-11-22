@@ -3,34 +3,37 @@
 #include <stdlib.h>
 #include "lists.h"
 
-size_t print_listint_safe(const listint_t *head)
-{
-const listint_t *slow = head, *fast = head;
-size_t count = 0;
-if (head == NULL)
-return(0);
+/**
+* print_listint_safe - Prints a listint_t linked list.
+* @h: Pointer to the beginning of the list.
+* Return: The number of nodes in the list.
+*/
 
-while (slow != NULL && fast != NULL && fast->next != NULL)
 {
-printf("[%p] %d\n", (void *)slow, slow->n);
-count++;
+size_t i = 0;
+const listint_t *slow_one = h;
+const listint_t *fast_one = h;
 
-slow = slow->next;
-fast = fast->next->next;
+if (h == NULL)
+return (0);
 
-if (slow == fast)
+while (fast_one && fast_one->next)
 {
-printf("[%p] %d\n", (void *)slow, slow->n);
-printf("-> [%p] %d\n", (void *)fast->next, fast->next->n);
+printf("[%p] %d\n", (void *)slow_one, slow_one->n);
+i = i + 1;
+slow_one = slow_one->next;
+fast_one = fast_one->next->next;
+
+if (slow_one == fast_one)
+{
+printf("[%p] %d\n", (void *)slow_one, slow_one->n);
+printf("Loop at [%p] %d\n", (void *)fast_one, fast_one->n);
 exit(98);
 }
 }
 
-if (slow != NULL)
-{
-printf("[%p] %d\n", (void *)slow, slow->n);
-count++;
-}
+printf("[%p] %d\n", (void *)slow_one, slow_one->n);
+i = i + 1;
 
-return(count);
+return (i);
 }
