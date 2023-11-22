@@ -27,12 +27,12 @@ if (slow_one == fast_one)
 {
 printf("[%p] %d\n", (void *)slow_one, slow_one->n);
 printf("Loop at [%p] %d\n", (void *)fast_one, fast_one->n);
-exit(98);
+return(1);
 }
 }
 
 printf("[%p] %d\n", (void *)slow_one, slow_one->n);
 i = i + 1;
 
-return (i);
+return (0);
 }
