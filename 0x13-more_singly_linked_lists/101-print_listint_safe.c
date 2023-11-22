@@ -9,6 +9,7 @@
 * Return: The number of nodes in the list.
 */
 
+size_t print_listint_safe(const listint_t *h)
 {
 size_t i = 0;
 const listint_t *slow_one = h;
