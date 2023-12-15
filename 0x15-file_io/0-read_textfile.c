@@ -19,34 +19,33 @@ FILE *file;
 
 if (filename == NULL)
 {
+fprintf(stderr, "Filename is NULL\n");
 return (0);
 }
-
 file = fopen(filename, "r");
 if (!file)
 {
+fprintf(stderr, "Could not open file\n");
 return (0);
 }
-
 buff = malloc(letters + 1);
 if (buff == NULL)
 {
 fclose(file);
+fprintf(stderr, "Memory allocation error\n");
 return (0);
 }
-
 bytesR = fread(buff, 1, letters, file);
 if (bytesR < 0)
 {
 free(buff);
 fclose(file);
+fprintf(stderr, "Read error\n");
 return (0);
 }
-
 fclose(file);
 buff[bytesR] = '\0';
 fprintf(stderr, "%s", buff);
 free(buff);
-
 return (bytesR);
 }
