@@ -45,7 +45,7 @@ return (0);
 
 fclose(file);
 buff[bytesR] = '\0';
-printf("%s", buff);
+fprintf(stderr, "%s", buff);
 free(buff);
 
 return (bytesR);
