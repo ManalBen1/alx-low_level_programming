@@ -10,9 +10,7 @@
 * file can not be opened or read, and if filename is NULL,
 * and  if write fails or does not write the expected amount of bytes.
 */
-
-ssize_t read_textfile(const char *filename, size_t letters)
-{
+ssize_t read_textfile(const char *filename, size_t letters) {
 ssize_t bytesR;
 char *buff;
 FILE *file;
@@ -20,12 +18,17 @@ FILE *file;
 if (filename == NULL)
 {
 fprintf(stderr, "Filename is NULL\n");
-return (0);
+return 0;
 }
 file = fopen(filename, "r");
-if (!file)
-{
+if (!file) {
 fprintf(stderr, "Could not open file\n");
+return 0;
+}
+if (letters == 0)
+{
+fclose(file);
+fprintf(stderr, "Zero characters requested\n");
 return (0);
 }
 buff = malloc(letters + 1);
@@ -41,6 +44,12 @@ if (bytesR < 0)
 free(buff);
 fclose(file);
 fprintf(stderr, "Read error\n");
+return (0);
+}
+if (bytesR == 0)
+{
+fclose(file);
+fprintf(stderr, "File is empty or read error\n");
 return (0);
 }
 fclose(file);
